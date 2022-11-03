@@ -1,0 +1,43 @@
+# CS 462 - Network Project
+#
+# Created by:
+# - Simon Arneberg
+# - Tyler Bauer
+# - Nuo Xu
+
+# Introduction
+This program creates a socket connection between two machines with the purpose of simulating the packet process while transferring a file.
+
+# Terminology
+Sender - The sender is the primary code that acts as the client for the file transfer process and indicates all of the simulation details such as: Packet Size, Timeout, Protocol, Sliding Window Size, and Sequence Number
+
+Receiver - The receiver is the server side of the system which receives data from the sender, sends back an ACK, then reconstructs the file in a new location.
+
+# How to Compile
+
+Sender (creates a binary named "sender"):
+	CMD: make sender
+
+Receiver (creates a binary named "receiver"):
+	CMD: make receiver
+
+# How to Run
+
+Step 1: Start up the receiver by doing the following:
+	CMD: ./receiver <port>    
+Port = port we want to use for the listening server. Example: ./receiver 9000
+
+Step 2: Start up the sender
+	CMD: ./sender
+
+Step 3: Enter settings indicating the file you want to transfer, where you want to transfer it (IP Address Only), and simulation settings for the packet process.
+
+Step 4: Wait for the simulation to finish
+
+# Validate Results
+
+Verify the results on each server using:
+	md5sum <input-file> or md5 <input-file>
+	md5sum <output-file> or md5 <output-file>
+
+If all goes well, those two should show matching md5 hashes indicating a successful transfer.
